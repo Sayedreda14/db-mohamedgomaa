@@ -1,0 +1,17 @@
+CREATE TABLE Farms (
+    FarmID INT AUTO_INCREMENT PRIMARY KEY,
+    FarmName VARCHAR(100),
+    OwnerDetails VARCHAR(100));
+CREATE TABLE Sensors (
+    SensorID INT AUTO_INCREMENT PRIMARY KEY,
+    SensorType VARCHAR(50),
+    FarmID INT,
+    FOREIGN KEY (FarmID) REFERENCES Farms(FarmID)
+);
+CREATE TABLE Sensordata (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    SensorID INT,
+    Timestamp TIMESTAMP,
+    dataValue FLOAT,
+    FOREIGN KEY (SensorID) REFERENCES Sensors(SensorID)
+);
